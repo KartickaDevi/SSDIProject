@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "watchList": [
+    {
+      "$oid": "645bb3a2bdbb76cf69cda911"
+    }
+  ],
+  "firstName": "First",
+  "lastName": "User",
+  "email": "firstuser@cct.com",
+  "password": "$2b$10$v8U/z8fFU0N3U.EiyHwxj.dQQl5xl5YKpkR44MafhuRJ2jIWCn0de",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "watchList": [
+    {
+      "$oid": "645bb36ebdbb76cf69cda8fc"
+    }
+  ],
+  "firstName": "Second",
+  "lastName": "User",
+  "email": "seconduser@cct.com",
+  "password": "$2b$10$e8PkQ0hcCEaT6A0s2Z4tFOb8FvPC3FM1IHNi/O3pUwnOx/ucgbqLS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d5b6708c0872ae4e3c31f"
+  },
+  "watchList": [],
+  "firstName": "Third",
+  "lastName": "Third",
+  "email": "third@gmail.com",
+  "password": "$2b$10$PkM6I4es2hq1eQWh0Q1LO.7.FzRcG4ZzSlPKggRF4rpyNyJbK2v8q",
+  "__v": 0
+}]

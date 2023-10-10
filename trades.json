@@ -1,0 +1,196 @@
+[{
+  "_id": {
+    "$oid": "645bb35cbdbb76cf69cda8f4"
+  },
+  "category": "Sedan",
+  "make": "Honda",
+  "model": "electric",
+  "year": "2019",
+  "trim": "ww",
+  "mileage": "12",
+  "myProfile": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:08:12.490Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T02:25:56.927Z"
+  },
+  "__v": 0,
+  "status": "traded",
+  "statusPending": true
+},{
+  "_id": {
+    "$oid": "645bb382bdbb76cf69cda904"
+  },
+  "category": "Sedan",
+  "make": "Acura",
+  "model": "qw",
+  "year": "2011",
+  "trim": "aa",
+  "mileage": "111111",
+  "myProfile": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:08:50.247Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T01:17:05.224Z"
+  },
+  "__v": 0,
+  "status": "traded",
+  "statusPending": true
+},{
+  "_id": {
+    "$oid": "645bb3a2bdbb76cf69cda911"
+  },
+  "category": "Sedan",
+  "make": "Mahindra",
+  "model": "ff",
+  "year": "2010",
+  "trim": "1",
+  "mileage": "sa",
+  "myProfile": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:09:22.803Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T02:31:49.697Z"
+  },
+  "__v": 0,
+  "status": "available",
+  "statusPending": false
+},{
+  "_id": {
+    "$oid": "645bb3b8bdbb76cf69cda918"
+  },
+  "category": "SUV",
+  "make": "kia",
+  "model": "seltos",
+  "year": "2022",
+  "trim": "qq",
+  "mileage": "12",
+  "myProfile": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:09:44.971Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T00:13:00.524Z"
+  },
+  "__v": 0,
+  "status": "traded",
+  "statusPending": true
+},{
+  "_id": {
+    "$oid": "645c3364b453bd28849f0344"
+  },
+  "category": "Sedan",
+  "make": "BMW",
+  "model": "sdf",
+  "year": "2023",
+  "trim": "19",
+  "mileage": "wer",
+  "myProfile": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "createdAt": {
+    "$date": "2023-05-11T00:14:28.708Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T02:30:51.511Z"
+  },
+  "__v": 0,
+  "status": "traded",
+  "statusPending": true
+},{
+  "_id": {
+    "$oid": "645c45154936f84900bbfe31"
+  },
+  "category": "Sedan",
+  "make": "Honda",
+  "model": "Civic",
+  "year": "2023",
+  "trim": "20",
+  "mileage": "50",
+  "myProfile": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "status": "Available",
+  "createdAt": {
+    "$date": "2023-05-11T01:29:57.132Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T01:29:57.132Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d5aad0584de096cfd601c"
+  },
+  "category": "Sedan",
+  "make": "BMW",
+  "model": "3",
+  "year": "1",
+  "trim": "1",
+  "mileage": "12",
+  "myProfile": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "status": "Available",
+  "createdAt": {
+    "$date": "2023-05-11T21:14:21.273Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T21:42:50.266Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d5b9108c0872ae4e3c326"
+  },
+  "category": "Sedan",
+  "make": "Honda",
+  "model": "1",
+  "year": "1",
+  "trim": "1",
+  "mileage": "11",
+  "myProfile": {
+    "$oid": "645d5b6708c0872ae4e3c31f"
+  },
+  "status": "Available",
+  "createdAt": {
+    "$date": "2023-05-11T21:18:09.768Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T21:18:21.041Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d6162ad7f3e3254591be1"
+  },
+  "category": "Sedan",
+  "make": "BMW",
+  "model": "1",
+  "year": "1",
+  "trim": "1",
+  "mileage": "1",
+  "myProfile": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "status": "traded",
+  "createdAt": {
+    "$date": "2023-05-11T21:42:58.340Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T02:30:51.511Z"
+  },
+  "__v": 0,
+  "statusPending": true
+}]

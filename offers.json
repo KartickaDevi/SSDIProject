@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "645bb403bdbb76cf69cda971"
+  },
+  "sender": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "receiver": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "sender_car": {
+    "$oid": "645bb382bdbb76cf69cda904"
+  },
+  "receiver_car": {
+    "$oid": "645bb3b8bdbb76cf69cda918"
+  },
+  "status": "accepted",
+  "createdAt": {
+    "$date": "2023-05-10T15:10:59.774Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T00:13:00.511Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645da48c0b4cf40504c781ad"
+  },
+  "sender": {
+    "$oid": "645ad5748fccc14e742f205d"
+  },
+  "receiver": {
+    "$oid": "645ad58c8fccc14e742f205f"
+  },
+  "sender_car": {
+    "$oid": "645d6162ad7f3e3254591be1"
+  },
+  "receiver_car": {
+    "$oid": "645c3364b453bd28849f0344"
+  },
+  "status": "accepted",
+  "createdAt": {
+    "$date": "2023-05-12T02:29:32.902Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T02:30:51.492Z"
+  },
+  "__v": 0
+}]

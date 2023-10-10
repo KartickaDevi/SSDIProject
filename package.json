@@ -1,0 +1,34 @@
+{
+  "name": "milestone3",
+  "version": "1.0.0",
+  "description": "An Express MVC app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gowri",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "luxon": "^1.28.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.13.17",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NadiaNajjar-CCI/trade_project-KartickaDevi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NadiaNajjar-CCI/trade_project-KartickaDevi/issues"
+  },
+  "homepage": "https://github.com/NadiaNajjar-CCI/trade_project-KartickaDevi#readme"
+}

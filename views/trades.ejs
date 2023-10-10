@@ -1,0 +1,44 @@
+<%- include('./partials/header.ejs') %>
+    
+    <%if(categoryArr.length) {%>
+        <%categoryArr.forEach(category=>{%>
+            <div id="main-content-area">
+                <div class="article">
+                    <section class="article-info">
+                        <h1><%= category.category %><h1></h1>
+                    </section>
+                </div>
+            </div>
+    <%category.trades.forEach(trade=>{%>
+    <div id="main-content-area">
+        <div class="article">  
+                    <aside class="article-img-container"><a href = "/trades/<%=trade.id%>"><img src=<%= trade.image%> alt="surf" width ="400" height="260" /></a></aside>
+                    <section class="article-info">
+                        <h2> <a href="/trades/<%=trade.id%>">Make: <%= trade.make %> </a> </h2>
+                        <br>
+                        <br>
+                        <p> <a href="/trades/<%=trade.id%>">Model: <%= trade.model %> </a> </p>
+                        <p> <a href="/trades/<%=trade.id%>">Year: <%= trade.year %>  </a> </p>
+                        <p> <a href="/trades/<%=trade.id%>">Trim: <%= trade.trim %> </a> </p>
+                        <p> <a href="/trades/<%=trade.id%>">Mileage: <%= trade.mileage %> </a> </p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </section>
+        </div>
+    </div>
+    <% })%>
+    <% })%>
+    <%}else{%>
+        <p>Oops. No cars available!</p>
+    <%}%>
+
+    <!-- <%if(user) {%>
+        <%= user %>
+        <%}%>  -->
+
+
+
+    <%- include('./partials/footer.ejs')%>

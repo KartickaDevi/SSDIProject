@@ -1,0 +1,72 @@
+<%- include('./partials/header.ejs') %>
+
+
+    <div id="main-content-area">
+        <div class="article">
+            <aside class="article-img-container"><img src=<%=trade.image%> width ="400" height="260" /></aside>
+            <section class="article-info">
+                <h2>
+                    <%= trade.make%>
+                </h2>
+                <br>
+                <br>
+
+                <form>
+                    <div class="article-action">
+                        <%if(user==trade.myProfile) {%>
+                            <button type="submit" class="btn btn-primary" id="update" value="Update" formmethod="GET"
+                                formaction="/trades/<%= trade.id%>/edit">Edit</button>
+                            <%};%>
+                                <%if(user==trade.myProfile) {%>
+                                    <button type="submit" class="btn btn-danger" id="delete" value="Delete" formmethod="POST"
+                                        formaction="/trades/<%= trade.id%>?_method=DELETE">Delete</button>
+                                    <%};%>
+                                    <%if(user!=trade.myProfile && !trade.inWatchlist) {%>
+                                        <button type="submit" class="btn btn-secondary" id="addWatchList" value="Update"
+                                            formmethod="POST"
+                                            formaction="/trades/<%= trade.id%>/watchlist">Watchlist
+                                        </button>
+                                    <%};%>
+                                    <%if(user!=trade.myProfile && trade.inWatchlist) {%>
+                                        <button type="submit" class="btn btn-danger" id="addWatchList" value="Update"
+                                            formmethod="POST"
+                                            formaction="/trades/<%= trade._id%>/deleteWatchlist">Unwatch
+                                        </button>
+                                    <%};%>
+                                    <%if(user!=trade.myProfile && cars.length > 0) {%>
+                                        <button class="btn btn-primary" id="addWatchList" formmethod="GET" formaction="/trades/<%= trade.id%>/makeOffer?_method=GET">
+                                            Make Offer
+                                        </button>
+                                    <%};%>
+                                    <%if(user!=trade.myProfile && cars.length == 0) {%>
+                                        <button class="btn btn-primary" id="addWatchList" formmethod="GET" formaction="/trades/new?_method=GET">
+                                            Sell Car to trade
+                                        </button>
+                                    <%};%>
+                    </div>
+                </form>
+
+                <br>
+                <br>
+                <p>
+                    <%= trade.model%>
+                </p>
+                <p>
+                    <%= trade.year%>
+                </p>
+                <p>
+                    <%= trade.trim%>
+                </p>
+                <p>
+                    <%= trade.mileage%>
+                </p>
+
+                <br>
+                <!-- <br> -->
+
+                
+            </section>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs')%>

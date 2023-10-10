@@ -1,0 +1,44 @@
+
+.article h2{
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 15px;
+    font-style: italic;
+    border-bottom: 2px solid #ddd;
+    color: #EE4E34;
+}
+
+aside.article-img-container{
+    width: 30%;
+    overflow: hidden;
+    float: left;
+}
+.article-info{
+    width: 60%;
+    margin-left: 10px;
+    float: left;
+    margin-top: 0;
+}
+.article-info h2{
+    margin-top : 2px; 
+    float: left;
+    color:#EE4E34
+}
+.article-info p{
+    color:#EE4E34
+}
+.article-content{
+    display: inline-block;
+    margin-top: 20px;
+}
+div.article-action{
+    display: inline-block;
+    width: 100%;
+}
+
+main-content-area h2{
+    color:#EE4E34
+}

@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') %>
+
+    <div id="main-content-area">
+            <div class="form">
+                <div class="form-heading">Provide the details of the car you wish to trade in</div>
+                <form action="/trades" method="POST">
+                    <label for="category"><span>Category<span class="required">*</span></span><select name="category" class="select-field">
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Luxury">Luxury Car</option>
+                    </select></label>
+                    <label for="make"><span>Car Make <span class="required">*</span></span><input type="text" maxlength="15" class="text-field" name="make" id="make" value="" required/></label>
+                    <label for="model"><span>Model <span class="required">*</span></span><input type="text" maxlength="15" class="text-field" name="model" id="model" value="" required/></label>
+                    <label for="year"><span>Year <span class="required">*</span></span><input type="number" class="text-field" name="year" id="year" value="" required/></label>
+                    <label for="trim"><span>Trim <span class="required">*</span></span><input type="number" class="text-field" name="trim" id="trim" value="" required/></label>
+                    <label for="mileage"><span>Mileage<span class="required">*</span></span><input type="number" min="1" max="100" class="text-field" name="mileage" id="mileage"value="" required/></label>
+                    
+                    <label><span> </span><input type="submit" value="Submit"  /></label>
+                    </form>
+            </div>
+    </div>
+
+    <%- include('./partials/footer.ejs')%>
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" href="/css/trade.css">
+    <link rel="stylesheet" href="/css/newTrade.css">
+    <link rel="stylesheet" href="/css/trades.css"> 
+</head>
+
+<body>
+    <header>
+        <div id="header">
+            <div id="heading-text">
+                <a href="/"><img src="/image/logo.png" alt="logo picture"/></a>
+                <p>Carbon Car Traders</p>
+                <div id="side-bar" class="right">
+                    <%if(!user) {%>
+                    <ul>
+                        <li><a href="/users/login">LOGIN</a></li>
+                        <li><a href="/users/new">SIGNUP</a></li>
+                    </ul>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div id="top-bar">
+            
+            <ul>
+                <li><a href="/trades">TRADES</a></li>
+                <%if(user) {%>
+                <li><a href="/trades/new">CREATE NEW TRADE</a></li>
+                <li><a href="/users/profile">PROFILE</a></li>
+                <li><a href='/users/logout'>LOGOUT</a></li>   
+                <%}%> 
+            </ul>
+            
+        </div>
+    </header>
+
+
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+    <% if(successMessages.length > 0) {%>
+    
+        <% successMessages.forEach(message=>{%>
+            <div class='success'>
+                <%=message%>
+            </div>
+       <%});%>
+    <%}%>

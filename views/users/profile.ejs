@@ -1,0 +1,261 @@
+
+<%- include('../partials/header.ejs')%>
+
+
+<div id="main-content-area">
+    <div class="article">
+        <section class="article-info">
+            <h1><%=user.firstName + "'s Cars"%></h1><br><br>
+            <%if(receiver.length == 0) {%>
+            <h2>You do not have any trade!</h2>
+            <%};%>
+        </section>
+    </div>
+</div>
+
+
+<%if(trades.length) {%>
+    
+    <div style="padding: 10px !important;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <%trades.forEach(trade=>{%>
+                    <tr>
+                        <td>
+                            <%= trade.make %>-<%= trade.model %>-<%= trade.year %>
+                        </td>
+                        <td>
+                            <%= trade.category %>
+                        </td>
+                        <td>
+                            <%= trade.status %>
+                        </td>
+                        <td>
+
+                                <form method="GET" action="/trades/<%= trade.id%>/edit" style="display: inline-block;">
+                                    <button type="submit" class="btn btn-primary" id="update" value="Update">Edit</button>
+                                </form>
+
+                                <form method="POST" action="/trades/<%= trade.id%>?_method=DELETE" style="display: inline-block;">
+                                    <button type="submit" class="btn btn-danger" id="delete" value="Delete">Delete</button>
+                                </form>
+
+                        </td>
+                    </tr>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+<%}%>
+
+</div>
+
+<div id="main-content-area">
+    <div class="article">
+        <section class="article-info">
+            <h1>Your Watchlist</h1><br><br>
+            <%if(user.watchList.length == 0) {%>
+            <h2>You do not have any saved car!</h2>
+            <%};%>
+        </section>
+    </div>
+</div>
+
+<%if(user.watchList.length) {%>
+    <div style="padding: 10px !important;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Car Details</th>
+                    <th>Car Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%user.watchList.forEach(trade=>{%>
+                    <tr>
+                        <td>
+                            <%= trade.make %>-<%= trade.model %>-<%= trade.year %>
+                        </td>
+                        <td>
+                            <%= trade.category %>
+                        </td>
+                        <td>
+                            <form method="POST" action="/trades/<%= trade._id%>/deleteWatchlist" style="display: inline-block;">
+                                <!-- <input type="hidden" name="status" value="cancelled" /> -->
+                                <button type="submit" class="btn btn-primary">Unwatch</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+<%}%>
+
+<div id="main-content-area">
+    <div class="article">
+        <section class="article-info">
+            <h1>Your Offers</h1><br><br>
+            <%if(sender.length == 0) {%>
+            <h2>You do not have any offers!</h2>
+            <%};%>
+        </section>
+    </div>
+</div>
+
+
+<%if(sender.length > 0) {%>
+    <div style="padding: 10px !important;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Offered Car</th>
+                    <th>Offered Category</th>
+                    <th>Asked Car</th>
+                    <th>Asked Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%sender.forEach(offer=>{%>
+                    <%if(offer.sender_car) {%>
+                    <tr>
+                        <td>
+                            <%= offer.sender_car.make %>-<%= offer.sender_car.model %>-<%= offer.sender_car.year %>
+                        </td>
+                        <td>
+                            <%= offer.sender_car.category %>
+                        </td>
+                        <td>
+                            <%= offer.receiver_car.make %> <%= offer.receiver_car.model %> <%= offer.receiver_car.year %>
+                        </td>
+                        <td>
+                            <%= offer.receiver_car.category %>
+                        </td>
+                        <td>
+                            <%= offer.status %>
+                        </td>
+                        <td>
+                            <!-- <form  method="POST" action="/offers/<%= offer._id%>?_method=PUT">
+                                <%if(offer.status == "pending") {%>
+                                    <input type="hidden" name="status" value="cancelled" />
+                                    <button type="submit">Cancel Offer</button>
+                                <%};%>
+                                <%if(offer.status == "cancelled" || offer.status == "declined") {%>
+                                    <input type="hidden" name="status" value="pending" />
+                                    <button type="submit">Re-Offer</button>
+                                <%};%>
+                                <%if(offer.status == "accepted") {%>
+                                    N/A
+                                <%};%>
+                            </form> -->
+
+                            <% if (offer.status === "pending") { %>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=PUT" style="display: inline-block;">
+                                  <input type="hidden" name="status" value="cancelled" />
+                                  <button type="submit" class="btn btn-secondary">Cancel Offer</button>
+                                </form>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=DELETE" style="display: inline-block;">
+                                  <button type="submit" class="btn btn-danger">Delete Offer</button>
+                                </form>
+                              <% }
+                              else if (offer.status == "cancelled" || offer.status == "declined") {%>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=PUT" style="display: inline-block;">
+                                    <input type="hidden" name="status" value="pending" />
+                                    <button type="submit" class="btn btn-success">Re-Offer</button>
+                                </form>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=DELETE" style="display: inline-block;">
+                                    <button type="submit" class="btn btn-danger">Delete Offer</button>
+                                </form>
+                              <%}
+                               else { %>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=DELETE" style="display: inline-block;">
+                                    <button type="submit" class="btn btn-danger">Delete Offer</button>
+                                </form>
+                              <% } %>
+                        </td>
+                    </tr>
+                    <%}%>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+<%}%>
+
+<div id="main-content-area">
+    <div class="article">
+        <section class="article-info">
+            <h1>Your's Trade Offers</h1><br><br>
+            <%if(receiver.length == 0) {%>
+            <h2>You do not have any trade offers!</h2>
+            <%};%>
+        </section>
+    </div>
+</div>
+
+
+<%if(receiver.length >0) {%>
+    <div style="padding: 10px !important;">
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Asked Car</th>
+                    <th>Asked Category</th>
+                    <th>Offered Car</th>
+                    <th>Offered Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%receiver.forEach(offer=>{%>
+                    <tr>
+                        <td>
+                            <%= offer.receiver_car.make %>-<%= offer.receiver_car.model %>-<%= offer.receiver_car.year %>
+                        </td>
+                        <td>
+                            <%= offer.receiver_car.category %>
+                        </td>
+                        <td>
+                            <%= offer.sender_car.make %> <%= offer.sender_car.model %> <%= offer.sender_car.year %>
+                        </td>
+                        <td>
+                            <%= offer.sender_car.category %>
+                        </td>
+                        <td>
+                            <%= offer.status %>
+                        </td>
+                        <td>
+                            <% if (offer.status === "pending") { %>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=PUT" style="display: inline-block;">
+                                  <input type="hidden" name="status" value="accepted" />
+                                  <button type="submit" class="btn btn-success">Accept</button>
+                                </form>
+                                <form method="POST" action="/offers/<%= offer._id %>?_method=PUT" style="display: inline-block;">
+                                  <input type="hidden" name="status" value="declined" />
+                                  <button type="submit" class="btn btn-danger">Decline</button>
+                                </form>
+                              <% } else { %>
+                                <p>N/A</p>
+                              <% } %>
+                        </td>
+                    </tr>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+<%}%>
+
+</div>
+<%- include('../partials/footer.ejs')%>

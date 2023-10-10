@@ -1,0 +1,60 @@
+<%- include('./partials/header.ejs') %>
+
+<%if(user!=trade.myProfile) {%>
+  <div style="padding: 20px;">
+    <h3>Make an offer with your car</h3>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Trim</th>
+                <th>Mileage</th>
+                <th>Make Offer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cars.forEach(function(car) { %>
+                <tr>
+                    <td>
+                        <%= car.make %>
+                    </td>
+                    <td>
+                        <%= car.model %>
+                    </td>
+                    <td>
+                        <%= car.year %>
+                    </td>
+                    <td>
+                        <%= car.trim %>
+                    </td>
+                    <td>
+                        <%= car.mileage %>
+                    </td>
+                    <%if(!car.statusPending) {%>
+
+                        <td>
+                            <form method="POST" action="/offers">
+                                <input type="hidden" name="sender" value="<%= user %>" />
+                                <input type="hidden" name="sender_car" value="<%= car._id %>" />
+                                <input type="hidden" name="receiver_car" value="<%= trade._id %>" />
+                                <input type="hidden" name="receiver" value="<%= trade.myProfile %>" />
+                                <button type="submit" class="btn btn-primary">Make Offer</button>
+                            </form>
+                        </td>
+                    <%};%>
+                    <%if(car.statusPending) {%>
+                        <td>
+                            <%= car.status %>
+                        </td>
+                    <%};%>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+  </div>
+  <%};%>
+
+<%- include('./partials/footer.ejs')%>

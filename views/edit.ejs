@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+    <div id="main-content-area">
+            <div class="form">
+                <div class="form-heading">Edit</div>
+                <form method="POST" action="/trades/<%= trade.id%>?_method=PUT">
+                    <label for="category"><span>Category<span cla ss="required">*</span></span><select name="category" class="select-field">
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Luxury">Luxury Car</option>
+                    </select></label>
+                    <label for="make"><span>Make <span class="required">*</span></span><input type="text" class="text-field" name="make" id="make" value=<%=trade.make%> required/></label>
+                    <label for="model"><span>Model <span class="required">*</span></span><input type="text" class="text-field" name="model" id="model" value=<%=trade.model%> required/></label>
+                    <label for="year"><span>Year <span class="required">*</span></span><input type="text" class="text-field" name="year" id="year" value=<%=trade.year%> required/></label>
+                    <label for="trim"><span>Trim <span class="required">*</span></span><input type="text" class="text-field" name="trim" id="trim" value=<%=trade.trim%> required/></label>
+                    <label for="mileage"><span>Mileage<span class="required">*</span></span><input type="text" class="text-field" name="mileage" id="mileage" value=<%=trade.mileage%> required/></label>
+                    <label><span> </span><input type="submit" value="Update" /></label>
+                    </form>
+                    </div>
+        </div>
+        <%- include('./partials/footer.ejs')%>

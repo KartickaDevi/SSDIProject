@@ -1,0 +1,16 @@
+
+<%- include('../partials/header.ejs')%>
+<div id="main-content-area">
+    <div class = "form">
+    <form action = '/users/login' method = 'POST'>
+
+                <label for="email"><span>Email Address <span class="required">*</span></span><input type="email" class="text-field" name="email" id="email" value="" required/></label>
+                <label for="password"><span>Password <span class="required">*</span></span><input type="password" class="text-field" name="password" id="password" value="" minlength="8" maxlength="64" required/></label>
+                <label><span> </span><input type="submit" value="login"  /></label>
+    </form>
+
+    </div>
+</div>
+    <%- include('../partials/footer.ejs')%>
+
+

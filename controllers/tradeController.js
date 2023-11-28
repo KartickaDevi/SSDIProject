@@ -48,16 +48,22 @@ exports.create = (req, res)=>{
     let trade = new model(req.body)//create a new story document
     trade.myProfile = req.session.user;
     trade.status = 'Available';
+    trade.reviews = [];
     trade.save() //insert the document to the database
     .then((trade)=> { 
         req.flash('success', 'Trade created successfully!');
+        console.log(trade);
         return res.redirect('/users/profile');
     }).catch((err)=> {
         if(err.name === 'ValidationError')
         {
             err.status = 400;
+            req.flash("error", err.message);
+            return res.redirect("back");
         }
-        next(err)})
+        console.log(err);
+        next(err);
+    });
 };
 
 exports.show = (req, res, next) => {
@@ -89,7 +95,8 @@ exports.show = (req, res, next) => {
                 }
                 model.find({myProfile: req.session.user})
                     .then((cars) => {
-                        res.render('./trade',{trade, cars})
+                        let reviews=trade.reviews;
+                        res.render('./trade',{trade, cars, reviews})
                     }).catch((err)=>next(err))
             }).catch((err)=>next(err))
             // model.find({myProfile: req.session.user})
@@ -288,7 +295,7 @@ exports.removeWatchList = (req, res) => {
     if(!id.match(/^[0-9a-fA-F]{24}$/)) {
         let err = new Error('Cannot find a car with id ' + id); 
         err.status = 400 
-        return next(err)
+        return next(err)  
     }
     userModel.findById(req.session.user)
     .then((user) => {
@@ -300,4 +307,46 @@ exports.removeWatchList = (req, res) => {
             return res.redirect('/users/profile')
         }).catch((err)=>next(err))
     }).catch((err)=>next(err))
-}
+};
+
+
+exports.addReview = async (req, res, next) => {
+    let tradeId = req.params.id;
+    const { review } = req.body;
+    let user = req.session.user;
+    console.log("tradeid="+tradeId);
+    console.log("user="+user);
+    console.log("review="+review);
+    try {
+      const userInfo=await userModel.findById(user);
+      let name=userInfo.firstName;
+      // Find the outfit by tradeId
+      console.log("name="+name);
+      const car_id = model.findById(tradeId);
+      console.log("car_id="+car_id);
+      if (!car_id) {
+        return res.status(404).json({ error: "Car not found" });
+      }
+      // Create the review object
+      const newReview = {
+        user,
+        name,
+        review
+      };
+      newReview.user = user;
+      newReview.name = name;
+      newReview.review = review;
+      console.log("newReview="+newReview);
+      model
+        .findByIdAndUpdate(tradeId, { $push: { reviews: newReview } },{ useFindAndModify: false, runValidators: true })
+        .then((trade) => {
+            req.flash('success', 'Your review is added successfully!')
+            console.log("success");
+            return res.redirect("/trades")
+        })
+        .catch((err) => next(err));
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+ } ;

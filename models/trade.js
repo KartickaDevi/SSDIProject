@@ -12,6 +12,11 @@ const tradeSchema = new Schema({
         statusPending: {type: Boolean},
         status: {type: String},
         /*image:'/image/civic.jpg'*/
+        reviews: [{
+            user: {type: Schema.Types.ObjectId,ref: "User"},
+            name: {type: String},
+            review: {type: String}
+        }]
 },
 {timestamps: true}
 );

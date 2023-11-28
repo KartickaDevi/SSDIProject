@@ -30,10 +30,10 @@ router.put('/:id', validateId, isLoggedIn, isAuthor, validateTrade,  controller.
 
 router.delete('/:id', validateId, isLoggedIn, isAuthor, controller.delete);
 
-
+router.post("/:id/reviews",isLoggedIn,validateId,controller.addReview);
 
 //router.post('/:id',  isLoggedIn, isConnPresent, isValidRsvp, controller.rsvp);
 
 //router.delete('/:id/rsvp', isLoggedIn, isConnPresent, controller.deleteRsvp);
 
-module.exports = router;
+module.exports = router; 

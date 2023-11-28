@@ -60,13 +60,49 @@
                 <p>
                     <%= trade.mileage%>
                 </p>
-
+                <br>
+                <br>
                 <br>
                 <!-- <br> -->
-
-                
+                <% if (reviews.length) { %>
+                    <section class="testimonials">
+                        <h2>Reviews</h2>
+                        <br>
+                        <div class="testimonial-slider">
+                            <% reviews.forEach(function(review) { %>
+                                <div class="testimonial">
+                                    <div class="testimonial-content">
+                                        <p><%= review.review %></p>
+                                        <p class="testimonial-author">- <%= review.name %></p>
+                                        <br>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </section>
+                <% } %>
+                <br>
+                <br>
+                <br>   
+            <div class="article-action">
+                <form action="/trades/<%=trade.id%>/reviews" method="POST">
+                    <div>
+                        <div class="form_details">
+                            <textarea class="text-field" name="review" placeholder="Give your review here" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Submit Review</button>
+                    </div>
+                </form>
+            </div>   
             </section>
         </div>
     </div>
+    
+
+
+
+
+
+
 
     <%- include('./partials/footer.ejs')%>
